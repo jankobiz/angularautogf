@@ -1,0 +1,8 @@
+mat-grid-tile {
+    background: lightsalmon;
+    max-height: 100%;
+  }
+
+  mat-grid-list {
+    height: 6000px;
+  }
