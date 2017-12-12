@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -80,7 +81,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, HttpModule
   ],
   exports: [
     CommonModule,
@@ -120,7 +121,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, HttpModule
   ],
   declarations: [
   ]
