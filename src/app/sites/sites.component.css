@@ -1,0 +1,32 @@
+.flex-container {
+  height: 100%;
+  padding: 10px 200px 0px 200px;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row {
+  width: 100%;
+}
+.flex-item {
+  width: 100%;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 100%;
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+  color: black;
+}

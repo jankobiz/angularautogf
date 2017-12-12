@@ -1,45 +1,49 @@
-<h1 style="width: 100%; text-align: center;">Site list</h1>
-<div style="align-items: center; justify-content: center; padding: 10px 200px 0px 200px; display: flex">
-    <div style="width: 100%;">
-<div class="example-container mat-elevation-z8">
-    <div class="example-header">
-      <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      </mat-form-field>
+<div class="flex-container">
+  <div class="row">
+    <div class="flex-item">
+      <h1>Site list</h1>
     </div>
-    <mat-table #table [dataSource]="dataSource" matSort>
+    <div class="flex-item">
+        <div class="example-container mat-elevation-z8">
+                <div class="example-header">
+                        <mat-form-field>
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                        </mat-form-field>
+                </div>
+                <mat-table #table [dataSource]="dataSource" matSort>
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-      </ng-container>
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="position">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                        </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-      </ng-container>
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                        </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-      </ng-container>
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="weight">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                        </ng-container>
 
-      <!-- Color Column -->
-      <ng-container matColumnDef="symbol">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-      </ng-container>
+                <!-- Color Column -->
+                <ng-container matColumnDef="symbol">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-    <mat-paginator #paginator
-      [pageSize]="10"
-      [pageSizeOptions]="[1, 5, 10, 20, 100]">
-    </mat-paginator>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator
+                [pageSize]="10"
+                [pageSizeOptions]="[1, 5, 10, 20, 100]">
+            </mat-paginator>
+        </div>
+    </div>
   </div>
-</div>
 </div>
