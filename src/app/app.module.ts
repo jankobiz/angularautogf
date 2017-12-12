@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MaterialModule } from './material/material.module';
+import { SharedModule } from './shared/shared.module';
 
-import { ForumsModule } from './forums/forums.module';
-import { SitesModule } from './sites/sites.module';
+import { ForumsModule } from './components/forums/forums.module';
+import { SitesModule } from './components/sites/sites.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
+import { WelcomeComponent } from './components/home/welcome.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +16,11 @@ import { WelcomeComponent } from './home/welcome.component';
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
+    SharedModule,
     RouterModule.forRoot([
-      { path: 'home', component: WelcomeComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' }
+      { path: 'dashboard', component: WelcomeComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]),
     ForumsModule,
     SitesModule

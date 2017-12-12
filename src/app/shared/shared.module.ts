@@ -125,4 +125,4 @@ import { CdkTableModule } from '@angular/cdk/table';
   declarations: [
   ]
 })
-export class MaterialModule { }
+export class SharedModule { }
