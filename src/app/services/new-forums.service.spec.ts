@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { NewforumsService } from './newforums.service';
+import { NewforumsService } from './new-forums.service';
 
 describe('NewforumsService', () => {
   beforeEach(() => {
