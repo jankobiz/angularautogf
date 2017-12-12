@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { ExistingForumsComponent } from './existing-forums/existing-forums.component';
-import { ExisitngForumsService } from './existing-forums/existing-forums.service';
+import { ExisitngForumsService } from '../../services/existing-forums.service';
 import { NewforumsComponent } from './new-forums/new-forums.component';
-import { NewforumsService } from './new-forums/new-forums.service';
+import { NewforumsService } from '../../services/new-forums.service';
 import { ForumsComponent } from './forums.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
+    SharedModule,
     RouterModule.forChild([
       { path: 'forums', component: ForumsComponent }
     ])
