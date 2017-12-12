@@ -5,20 +5,3 @@
   left: 0;
   right: 0;
 }
-.side-container{
-  background-color: aliceblue;
-}
-.nav-container {
-  width: auto;
-  font-size: 1.2em;
-  padding: 20px 15px 0px 15px;
-}
-
-.nav-container a {
-  color:black; /* unvisited link */
-  text-decoration: none;
-}
-
-.nav-container a:visited {color: black;}  /* visited link */
-.nav-container a:hover {color:dimgray;}  /* mouse over link */
-.nav-container a:active {color:darkslategrey;} /* selected link */

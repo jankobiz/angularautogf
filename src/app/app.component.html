@@ -1,10 +1,10 @@
 <mat-sidenav-container class="example-container" >
-    <mat-sidenav class="side-container" mode="side" opened="true">
-      <div class="nav-container">
-        <div><a routerLink="" routerLinkActive="active">Home</a></div>
-        <div><a routerLink="/sites" routerLinkActive="active">Sites</a></div>
-        <div><a routerLink='/forums' routerLinkActive="active">Forums</a></div>
-      </div>
+    <mat-sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <a mat-list-item routerLink="" routerLinkActive="active">Home</a>
+            <a mat-list-item routerLink="/sites" routerLinkActive="active">Sites</a>
+            <a mat-list-item routerLink='/forums' routerLinkActive="active">Forums</a>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content><router-outlet></router-outlet>
     </mat-sidenav-content>
