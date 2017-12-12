@@ -1,6 +1,11 @@
-<nav>
-    <a routerLink="" routerLinkActive="active">Home</a>
-    <a routerLink="/sites" routerLinkActive="active">Sites</a>
-    <a routerLink='/forums' routerLinkActive="active">Forums</a>
-</nav>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav class="side-container" mode="side" opened="true">
+      <div class="nav-container">
+        <div><a routerLink="" routerLinkActive="active">Home</a></div>
+        <div><a routerLink="/sites" routerLinkActive="active">Sites</a></div>
+        <div><a routerLink='/forums' routerLinkActive="active">Forums</a></div>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content><router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

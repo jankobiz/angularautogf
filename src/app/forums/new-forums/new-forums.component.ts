@@ -40,7 +40,7 @@ export class NewforumsComponent implements OnInit, AfterViewInit {
 
 }
 
-interface UzaserResponse {
+interface UserResponse {
   login: string;
   bio: string;
   company: string;
