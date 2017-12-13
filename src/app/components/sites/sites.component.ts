@@ -2,8 +2,9 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit } from '
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
-import { User } from '../../models/user.model';
-import { UserService } from '../../services/user.service';
+import { Site } from '../../models/site.model';
+import { SitesService } from '../../services/sites.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-sites',
@@ -13,13 +14,15 @@ import { UserService } from '../../services/user.service';
 })
 export class SitesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ['login', 'id', 'url', 'created_at'];
-  // dataSource = new UserDataSource(this.userService);
-  users: User[];
-  dataSource = new MatTableDataSource<User>(this.users);
+  displayedColumns = ['siteid', 'siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority'];
+  // dataSource = new SiteDataSource(this.sitesService);
+  sites: Site[];
+  sitesArray: Site[] = [];
+  siteElem: Site = {};
+  dataSource = new MatTableDataSource<Site>(this.sitesArray);
   errorMessage = 'Error occurred!';
 
-  constructor(private userService: UserService) { }
+  constructor(private sitesService: SitesService) { }
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -29,45 +32,39 @@ export class SitesComponent implements OnInit, AfterViewInit {
    * be able to query its view for the initialized sort.
    */
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+
   }
 
   applyFilter(filterValue: string) {
-    console.log(this.users);
+    console.log(this.sites);
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
   ngOnInit() {
-    this.userService.getUser()
-    .subscribe(users => this.users = users,
+    this.sitesService.getSites()
+    .subscribe(data => this.sites = data['data'],
                error => this.errorMessage = <any>error,
-               () => console.log(this.users));
+               () => {
+                this.sites.forEach(element => {
+                   element.autogf_lastrun = new Date (element.autogf_lastrun);
+                 });
+                 this.dataSource = new MatTableDataSource<Site>(this.sites);
+                 this.dataSource.sort = this.sort;
+                 this.dataSource.paginator = this.paginator;
+                 console.log('fdfdsf', this.sites);
+                });
   }
 
 }
-const USER_DATA: User[] = [
-  {
-    login: 'Leanne Graham',
-    id: 'Sincere@april.biz',
-    url: '1-770-736-8031 x56442',
-    created_at: 'dadfaafffaa',
-  },
-  {
-    login: 'Ervin Howell',
-    id: 'Shanna@melissa.tv',
-    url: '010-692-6593 x09125',
-    created_at: 'Deckow-Crist',
+
+export class SiteDataSource extends DataSource<any> {
+  constructor(private sitesService: SitesService) {
+    super();
   }
-];
-// export class UserDataSource extends DataSource<any> {
-//   constructor(private userService: UserService) {
-//     super();
-//   }
-//   connect(): Observable<User[]> {
-//     return this.userService.getUser();
-//   }
-//   disconnect() {}
-// }
+  connect(): Observable<Site[]> {
+    return this.sitesService.getSites();
+  }
+  disconnect() {}
+}

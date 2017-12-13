@@ -12,36 +12,48 @@
                 </div>
                 <mat-table #table [dataSource]="dataSource" matSort>
 
-                        <!-- Position Column -->
-                        <ng-container matColumnDef="login">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                                    <mat-cell *matCellDef="let user"> {{user.login}} </mat-cell>
+                        <!-- Site ID Column -->
+                        <ng-container matColumnDef="siteid">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Site ID </mat-header-cell>
+                                    <mat-cell *matCellDef="let site"> {{site.siteid}} </mat-cell>
                         </ng-container>
 
                         <!-- Name Column -->
-                        <ng-container matColumnDef="id">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-                                    <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
+                        <ng-container matColumnDef="siteurl">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header> Site URL </mat-header-cell>
+                                    <mat-cell *matCellDef="let site"> {{site.siteurl}} </mat-cell>
                         </ng-container>
 
                         <!-- Weight Column -->
-                        <ng-container matColumnDef="url">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
-                          <mat-cell *matCellDef="let user"> {{user.url}} </mat-cell>
+                        <ng-container matColumnDef="bbstype">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> BBSType </mat-header-cell>
+                          <mat-cell *matCellDef="let site"> {{site.bbstype}} </mat-cell>
                         </ng-container>
 
-                <!-- Color Column -->
-                <ng-container matColumnDef="created_at">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Company </mat-header-cell>
-                        <mat-cell *matCellDef="let user"> {{user.created_at}} </mat-cell>
-                </ng-container>
+                        <!-- Color Column -->
+                        <ng-container matColumnDef="autogf_lastrun">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Lastrun </mat-header-cell>
+                          <mat-cell *matCellDef="let site"> {{site.autogf_lastrun | date:'MMMM dd, y hh:mm a'}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Color Column -->
+                        <ng-container matColumnDef="autogf_lastsync">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Lastsync </mat-header-cell>
+                          <mat-cell *matCellDef="let site"> {{site.autogf_lastsync | date:'MMMM dd, y hh:mm a'}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Color Column -->
+                        <ng-container matColumnDef="autogf_priority">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Priority </mat-header-cell>
+                          <mat-cell *matCellDef="let site"> {{site.autogf_priority}} </mat-cell>
+                        </ng-container>
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
             </mat-table>
             <mat-paginator #paginator
                 [pageSize]="10"
-                [pageSizeOptions]="[1, 5, 10, 20, 100]">
+                [pageSizeOptions]="[1, 5, 10, 20, 100, 1000, 10000]">
             </mat-paginator>
         </div>
     </div>

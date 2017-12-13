@@ -6,7 +6,6 @@ import { SharedModule } from '../../shared/shared.module';
 
 import { SitesComponent } from './sites.component';
 import { SitesService } from '../../services/sites.service';
-import { UserService } from '../../services/user.service';
 
 @NgModule({
   imports: [
@@ -17,6 +16,6 @@ import { UserService } from '../../services/user.service';
     ])
   ],
   declarations: [SitesComponent],
-  providers: [SitesService, UserService]
+  providers: [SitesService, SitesService]
 })
 export class SitesModule { }
