@@ -16,7 +16,7 @@ export class UserService {
 
   getUser(): Observable<User[]> {
     return this.http.get(this.serviceUrl)
-    .map((res: Response) => { return <User[]>res.json()});
+    .map((res: Response) =>  <User[]>res.json());
     // .do(data => console.log('All: ' +  JSON.stringify(data)));
   }
 }
