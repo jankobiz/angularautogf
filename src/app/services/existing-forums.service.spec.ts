@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ExisitngForumsService } from './existing-forums.service';
+import { ExistingForumsService } from './existing-forums.service';
 
-describe('ExisitngForumsService', () => {
+describe('ExistingForumsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ExisitngForumsService]
+      providers: [ExistingForumsService]
     });
   });
 
-  it('should be created', inject([ExisitngForumsService], (service: ExisitngForumsService) => {
+  it('should be created', inject([ExistingForumsService], (service: ExisitngForumsService) => {
     expect(service).toBeTruthy();
   }));
 });
