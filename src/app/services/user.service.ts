@@ -9,14 +9,14 @@ import { User } from '../models/user.model';
 @Injectable()
 export class UserService {
 
-  private serviceUrl = 'https://jsonplaceholder.typicode.com/users';
+  private serviceUrl = 'https://api.github.com/users/jankobiz';
 
 
   constructor(private http: Http) { }
 
   getUser(): Observable<User[]> {
     return this.http.get(this.serviceUrl)
-    .map((res: Response) => <User[]>res.json());
+    .map((res: Response) => { return <User[]>res.json()});
     // .do(data => console.log('All: ' +  JSON.stringify(data)));
   }
 }

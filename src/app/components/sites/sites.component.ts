@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
 })
 export class SitesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ['name', 'email', 'phone', 'company'];
+  displayedColumns = ['login', 'id', 'url', 'created_at'];
   // dataSource = new UserDataSource(this.userService);
   users: User[];
   dataSource = new MatTableDataSource<User>(this.users);
@@ -44,26 +44,22 @@ export class SitesComponent implements OnInit, AfterViewInit {
     this.userService.getUser()
     .subscribe(users => this.users = users,
                error => this.errorMessage = <any>error,
-               () => console.log(this.users[0].name));
+               () => console.log(this.users));
   }
 
 }
 const USER_DATA: User[] = [
   {
-    name: 'Leanne Graham',
-    email: 'Sincere@april.biz',
-    phone: '1-770-736-8031 x56442',
-    company: {
-      name: 'Romaguera-Crona',
-    }
+    login: 'Leanne Graham',
+    id: 'Sincere@april.biz',
+    url: '1-770-736-8031 x56442',
+    created_at: 'dadfaafffaa',
   },
   {
-    name: 'Ervin Howell',
-    email: 'Shanna@melissa.tv',
-    phone: '010-692-6593 x09125',
-    company: {
-      name: 'Deckow-Crist',
-    }
+    login: 'Ervin Howell',
+    id: 'Shanna@melissa.tv',
+    url: '010-692-6593 x09125',
+    created_at: 'Deckow-Crist',
   }
 ];
 // export class UserDataSource extends DataSource<any> {
