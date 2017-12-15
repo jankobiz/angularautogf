@@ -28,7 +28,10 @@ export class NewForumsComponent implements OnInit {
             const result = data['data'];
             const newForums: Array<NewForumsModel> = [];
             for (const row of result){
-                newForums.push(JSON.parse(row.forums));
+              for (const forum of JSON.parse(row.forums)){
+                console.log(forum)
+                newForums.push(forum);
+              }
             }
             this.dataSource = new MatTableDataSource<NewForumsModel>(newForums);
           },
