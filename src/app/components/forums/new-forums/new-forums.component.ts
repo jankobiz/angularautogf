@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -15,6 +15,8 @@ import { NewForumsModel } from '../../../models/new-forums.model';
 })
 export class NewForumsComponent implements OnInit {
 
+  @Input() siteid: string;
+
   constructor(private newForumsService: NewForumsService) { }
 
   displayedColumns = ['forumlink', 'forumname', 'forumnumber'];
@@ -24,7 +26,7 @@ export class NewForumsComponent implements OnInit {
 
   getNewForums(): void {
 
-        this.newForumsService.getNewForums().subscribe(data => {
+        this.newForumsService.getNewForums(this.siteid).subscribe(data => {
             const result = data['data'];
             const newForums: Array<NewForumsModel> = [];
             for (const row of result){

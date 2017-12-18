@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -15,6 +15,8 @@ import { ExistingForumsModel } from '../../../models/existing-forums.model';
 })
 export class ExistingForumsComponent implements OnInit {
 
+  @Input() siteid: string;
+
   constructor(private existingForumsService: ExistingForumsService) { }
 
   displayedColumns = ['forumlink', 'forumname', 'forumnumber'];
@@ -24,7 +26,7 @@ export class ExistingForumsComponent implements OnInit {
 
   getExistingForums(): void {
 
-            this.existingForumsService.getExistingForums().subscribe(data => {
+            this.existingForumsService.getExistingForums(this.siteid).subscribe(data => {
 
                 const existingForums: Array<ExistingForumsModel> = data['data'];
                 this.dataSource = new MatTableDataSource<ExistingForumsModel>(existingForums);

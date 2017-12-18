@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 import { FeedbackComponent } from './feedback/feedback.component';
+
+import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,8 +14,12 @@ import { FeedbackComponent } from './feedback/feedback.component';
   styleUrls: ['./forums.component.css']
 })
 export class ForumsComponent implements OnInit {
+  private sub: Subscription;
+  siteid = '';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private route: ActivatedRoute,
+    private router: Router) {}
+
 
   openFeedbackForm(): void {
     let dialogRef = this.dialog.open(FeedbackComponent, {
@@ -25,7 +33,12 @@ export class ForumsComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+      this.sub = this.route.params.subscribe(
+          params => {
+              this.siteid = params['siteid'];
+      });
   }
+
 
 }

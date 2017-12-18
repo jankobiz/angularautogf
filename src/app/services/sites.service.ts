@@ -5,11 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { Site } from '../models/site.model';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SitesService {
 
-  private serviceUrl = 'http://192.168.0.51:3000/autogf/v1/sites?pageSize=10000';
+  private serviceUrl = `${environment.apiBaseUrl}sites?pageSize=10000`;
 
   constructor(private http: Http, private httpClient: HttpClient) { }
 

@@ -10,11 +10,11 @@ import { forEach } from '@angular/router/src/utils/collection';
   selector: 'app-sites',
   templateUrl: './sites.component.html',
   styleUrls: ['./sites.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class SitesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ['siteid', 'siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority'];
+  displayedColumns = ['siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority', 'signals'];
   // dataSource = new SiteDataSource(this.sitesService);
   sites: Site[];
   sitesArray: Site[] = [];

@@ -5,4 +5,5 @@ export interface Site {
   autogf_lastrun?: Date;
   autogf_lastsync?: Date;
   autogf_priority?: number;
+  signals?: string;
 }
