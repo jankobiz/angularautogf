@@ -9,6 +9,7 @@ import { ExistingForumsService } from '../../services/existing-forums.service';
 import { NewForumsComponent } from './new-forums/new-forums.component';
 import { NewForumsService } from '../../services/new-forums.service';
 import { ForumsComponent } from './forums.component';
+//import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ForumsComponent } from './forums.component';
   ],
   exports: [ExistingForumsComponent, NewForumsComponent],
   declarations: [ExistingForumsComponent, NewForumsComponent, ForumsComponent],
+  //entryComponents: [ FeedbackComponent ],
   providers: [ExistingForumsService, NewForumsService]
 })
 export class ForumsModule { }

@@ -1,3 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Compare forums</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <button mat-button (click)="openFeedbackForm()">Feedback</button>
+
+</mat-toolbar>
+
+
 <div style="display: flex">
   <div style="width: 50%; align-content: center; padding: 5px"> <app-existing-forums></app-existing-forums> </div>
   <div style="width: 50%; align-content: center; padding: 5px"> <app-new-forums></app-new-forums> </div>
