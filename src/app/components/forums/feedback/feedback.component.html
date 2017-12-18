@@ -1,3 +1,17 @@
-<p>
-  feedback works!
-</p>
+<h2>Feedback</h2>
+<h3><i>Give us feedback, please</i></h3>
+
+<form [formGroup]="feedbackForm" novalidate>
+  <div class="form-group">   
+    <label class="center-block">Number of forums to be archived:
+      <input class="form-control" formControlName="archivedNum">
+    </label>
+    <label class="center-block">New forums:
+      <input class="form-control" formControlName="newForums">
+    </label>
+    <label class="center-block">GF completed successfuly:
+      <input class="form-control" formControlName="completedSuccessfuly">
+    </label>
+  </div>
+</form>
+

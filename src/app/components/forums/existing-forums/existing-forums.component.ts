@@ -11,7 +11,7 @@ import { ExistingForumsModel } from '../../../models/existing-forums.model';
   selector: 'app-existing-forums',
   templateUrl: './existing-forums.component.html',
   styleUrls: ['./existing-forums.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class ExistingForumsComponent implements OnInit {
 
