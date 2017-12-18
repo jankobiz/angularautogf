@@ -18,34 +18,43 @@
                                     <mat-cell *matCellDef="let site"> {{site.siteid}} </mat-cell>
                         </ng-container>
 
-                        <!-- Name Column -->
+                        <!-- Site URL Column -->
                         <ng-container matColumnDef="siteurl">
                                     <mat-header-cell *matHeaderCellDef mat-sort-header> Site URL </mat-header-cell>
-                                    <mat-cell *matCellDef="let site"> {{site.siteurl}} </mat-cell>
+                                    <mat-cell *matCellDef="let site"> <a [routerLink]="['/forums', site.siteid]">
+                                        {{site.siteurl}}
+                                      </a>
+                                    </mat-cell>
                         </ng-container>
 
-                        <!-- Weight Column -->
+                        <!-- BBSType Column -->
                         <ng-container matColumnDef="bbstype">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> BBSType </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.bbstype}} </mat-cell>
                         </ng-container>
 
-                        <!-- Color Column -->
+                        <!-- Last Run Column -->
                         <ng-container matColumnDef="autogf_lastrun">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Lastrun </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.autogf_lastrun | date:'MMMM dd, y hh:mm a'}} </mat-cell>
                         </ng-container>
 
-                        <!-- Color Column -->
+                        <!-- Last Sync Column -->
                         <ng-container matColumnDef="autogf_lastsync">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Lastsync </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.autogf_lastsync | date:'MMMM dd, y hh:mm a'}} </mat-cell>
                         </ng-container>
 
-                        <!-- Color Column -->
+                        <!-- Priority Column -->
                         <ng-container matColumnDef="autogf_priority">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Priority </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.autogf_priority}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Signal Column -->
+                        <ng-container matColumnDef="signals">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Signals </mat-header-cell>
+                          <mat-cell *matCellDef="let site"> {{site.signals}} </mat-cell>
                         </ng-container>
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

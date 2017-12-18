@@ -11,9 +11,9 @@ export class ExistingForumsService {
 
   constructor(private http: HttpClient) { }
 
-  getExistingForums(): any {
+  getExistingForums(siteid: string): any {
 
-    const endpoint = 'sites/2/forums';
+    const endpoint = `sites/${siteid}/forums`;
 
     // TO DO add siteid param !!!!!!!!!!
     return this.http.get(this.baseUrl + endpoint);
