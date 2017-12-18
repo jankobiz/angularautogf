@@ -1,40 +1,29 @@
-<div class="example-container mat-elevation-z8">
-  <div class="example-header">
+<div class="existing-forums-container mat-elevation-z8">
+  <div class="existing-forums-header">
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
   </div>
   <mat-table #table [dataSource]="dataSource" matSort>
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    
+    <ng-container matColumnDef="forumlink">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Forum Link </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.forumlink}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+   
+    <ng-container matColumnDef="forumname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Forum Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.forumname}} </mat-cell>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+   
+    <ng-container matColumnDef="forumnumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Forum Number </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.forumnumber}} </mat-cell>
     </ng-container>
-
-    <!-- Color Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-    </ng-container>
-
+   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <!--<mat-paginator #paginator
-    [pageSize]="1000">
-    [pageSizeOptions]="[1, 5, 10, 20, 100]">
-  </mat-paginator>-->
+  </mat-table> 
 </div>

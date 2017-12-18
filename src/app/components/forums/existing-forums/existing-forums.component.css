@@ -1,0 +1,19 @@
+.existing-forums-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .existing-forums-header .mat-form-field{
+    padding: 0 24px
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 100%;
+  }
+  
+  .mat-header-cell.mat-sort-header-sorted {
+    color: black;
+  }
+  
