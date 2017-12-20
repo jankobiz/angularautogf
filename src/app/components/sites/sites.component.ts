@@ -47,13 +47,12 @@ export class SitesComponent implements OnInit, AfterViewInit {
     .subscribe(data => this.sites = data['data'],
                error => this.errorMessage = <any>error,
                () => {
-                this.sites.forEach(element => {
-                   element.autogf_lastrun = new Date (element.autogf_lastrun);
-                 });
-                 this.dataSource = new MatTableDataSource<Site>(this.sites);
-                 this.dataSource.sort = this.sort;
-                 this.dataSource.paginator = this.paginator;
-                 console.log('fdfdsf', this.sites);
+                  this.sites.forEach(element => {
+                    element.autogf_lastrun = new Date (element.autogf_lastrun);
+                  });
+                  this.dataSource = new MatTableDataSource<Site>(this.sites);
+                  this.dataSource.sort = this.sort;
+                  this.dataSource.paginator = this.paginator;
                 });
   }
 
