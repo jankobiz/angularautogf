@@ -54,7 +54,11 @@
                         <!-- Signal Column -->
                         <ng-container matColumnDef="signals">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Signals </mat-header-cell>
-                          <mat-cell *matCellDef="let site"><span matTooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." matTooltipPosition='after'> {{site.signals}} </span></mat-cell>
+                          <mat-cell *matCellDef="let site">
+                            <span matTooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." matTooltipPosition='after'> {{site.signals}} </span>
+                          </mat-cell>
                         </ng-container>
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
