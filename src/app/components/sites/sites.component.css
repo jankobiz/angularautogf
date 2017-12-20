@@ -1,6 +1,6 @@
 .flex-container {
   height: 100%;
-  padding: 10px 20px 0px 20px;
+  padding: 5px 5px 0px 5px;
   margin: 0;
   display: -webkit-box;
   display: -moz-box;
@@ -29,4 +29,8 @@
 
 .mat-header-cell.mat-sort-header-sorted {
   color: black;
+}
+
+.mat-toolbar{
+  margin-bottom: 15px;
 }

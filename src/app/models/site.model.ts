@@ -6,4 +6,6 @@ export interface Site {
   autogf_lastsync?: Date;
   autogf_priority?: number;
   signals?: string;
+  signalstring?: string;
+  signalsum?: number;
 }
