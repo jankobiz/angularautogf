@@ -23,7 +23,7 @@ export class ForumsComponent implements OnInit {
 
   openFeedbackForm(): void {
     let dialogRef = this.dialog.open(FeedbackComponent, {
-      //width: '250px',
+        width: '400px',
       //  data: { name: this.name, animal: this.animal }
     });
 

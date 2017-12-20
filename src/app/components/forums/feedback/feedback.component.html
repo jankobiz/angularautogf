@@ -3,15 +3,31 @@
 
 <form [formGroup]="feedbackForm" novalidate>
   <div class="form-group">   
-    <label class="center-block">Number of forums to be archived:
-      <input class="form-control" formControlName="archivedNum">
-    </label>
-    <label class="center-block">New forums:
-      <input class="form-control" formControlName="newForums">
-    </label>
-    <label class="center-block">GF completed successfuly:
-      <input class="form-control" formControlName="completedSuccessfuly">
-    </label>
+      <mat-form-field>
+          <input matInput  formControlName="newForums" placeholder="New forums">
+          <mat-error *ngIf="feedbackForm.controls['newForums'].errors.required">{{'Field is required'}}</mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field>
+          <input matInput  formControlName="archivedNum" placeholder="Number of forums to be archived">
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-form-field>
+          <input matInput  formControlName="completedSuccessfuly" placeholder="GF completed successfuly">
+      </mat-form-field>   
   </div>
 </form>
+
+
+
+<button mat-raised-button color="primary">OK</button>
+
+<button mat-raised-button>Cancel</button>
+
+<p>Form value: {{feedbackForm.controls['newForums'].errors | json }}</p>
+
+<p>Form value: {{ feedbackForm.value | json }}</p>
+<p>Form status: {{ feedbackForm.status | json }}</p>
 

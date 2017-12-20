@@ -15,7 +15,6 @@ export class ExistingForumsService {
 
     const endpoint = `sites/${siteid}/forums`;
 
-    // TO DO add siteid param !!!!!!!!!!
     return this.http.get(this.baseUrl + endpoint);
   }
 
