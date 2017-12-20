@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class SitesService {
 
-  private serviceUrl = `${environment.apiBaseUrl}sites?pageSize=10000`;
+  private serviceUrl = `${environment.apiBaseUrl}sites?pageSize=1000`;
 
   constructor(private http: Http, private httpClient: HttpClient) { }
 
