@@ -14,7 +14,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 })
 export class SitesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ['siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority', 'signals'];
+  displayedColumns = ['siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority', 'signalstring'];
   // dataSource = new SiteDataSource(this.sitesService);
   sites: Site[];
   sitesArray: Site[] = [];
@@ -44,11 +44,18 @@ export class SitesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.sitesService.getSites()
-    .subscribe(data => this.sites = data['data'],
+    .subscribe(data => this.sites = <Site[]>data['data'],
                error => this.errorMessage = <any>error,
                () => {
+                  let elem;
                   this.sites.forEach(element => {
-                    element.autogf_lastrun = new Date (element.autogf_lastrun);
+                    elem = JSON.parse(element.signals);
+                    if (elem !== null) {
+                      element.signalstring = elem.signals.join();
+                      element.signalsum = elem.sum;
+                    } else {
+                      element.signalstring = '';
+                    }
                   });
                   this.dataSource = new MatTableDataSource<Site>(this.sites);
                   this.dataSource.sort = this.sort;
