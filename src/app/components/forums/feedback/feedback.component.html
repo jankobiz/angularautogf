@@ -5,7 +5,7 @@
   <div class="form-group">   
       <mat-form-field>
           <input matInput  formControlName="newForums" placeholder="New forums">
-          <mat-error *ngIf="feedbackForm.controls['newForums'].errors.required">{{'Field is required'}}</mat-error>
+          <!-- <mat-error *ngIf="feedbackForm.controls['newForums'].errors.required">{{'Field is required'}}</mat-error> -->
       </mat-form-field>
       <br>
       <br>
@@ -20,14 +20,14 @@
   </div>
 </form>
 
+<mat-dialog-actions>
+    <button type="submit" mat-raised-button color="primary"
+            [disabled]="feedbackForm.pristine" [mat-dialog-close]="feedbackForm">Save</button> &nbsp;
+    <button type="reset"  mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
 
 
-<button mat-raised-button color="primary">OK</button>
 
-<button mat-raised-button>Cancel</button>
-
-<p>Form value: {{feedbackForm.controls['newForums'].errors | json }}</p>
-
-<p>Form value: {{ feedbackForm.value | json }}</p>
-<p>Form status: {{ feedbackForm.status | json }}</p>
+<!-- <p>Form value: {{ feedbackForm.value | json }}</p>
+<p>Form status: {{ feedbackForm.status | json }}</p> -->
 

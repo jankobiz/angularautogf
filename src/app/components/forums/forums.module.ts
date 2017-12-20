@@ -8,6 +8,8 @@ import { ExistingForumsComponent } from './existing-forums/existing-forums.compo
 import { ExistingForumsService } from '../../services/existing-forums.service';
 import { NewForumsComponent } from './new-forums/new-forums.component';
 import { NewForumsService } from '../../services/new-forums.service';
+import { ForumsCompareFeedbackService } from '../../services/forums-compare-feedback.service';
+
 import { ForumsComponent } from './forums.component';
 
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -29,7 +31,7 @@ import { ForumsRouteGuard } from './shared/forums-route.guard';
   exports: [ExistingForumsComponent, NewForumsComponent],
   declarations: [ExistingForumsComponent, NewForumsComponent, ForumsComponent, FeedbackComponent],
   entryComponents: [ FeedbackComponent ],
-  providers: [ExistingForumsService, NewForumsService, ForumsRouteGuard]
+  providers: [ExistingForumsService, NewForumsService, ForumsCompareFeedbackService, ForumsRouteGuard]
 
 })
 export class ForumsModule { }

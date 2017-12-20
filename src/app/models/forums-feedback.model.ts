@@ -1,6 +1,5 @@
-export class Feedback {
-    archivedNum = 0;
-    newForums = 0;
-    completedSuccessfuly: 0;
-  }
+export interface FeedbackModel {
+  id: number;
+  feedback: string;
+}
 
