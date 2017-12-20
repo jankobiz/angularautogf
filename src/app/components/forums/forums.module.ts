@@ -9,7 +9,11 @@ import { ExistingForumsService } from '../../services/existing-forums.service';
 import { NewForumsComponent } from './new-forums/new-forums.component';
 import { NewForumsService } from '../../services/new-forums.service';
 import { ForumsComponent } from './forums.component';
+
+import { FeedbackComponent } from './feedback/feedback.component';
+
 import { ForumsRouteGuard } from './shared/forums-route.guard';
+
 
 @NgModule({
   imports: [
@@ -23,7 +27,9 @@ import { ForumsRouteGuard } from './shared/forums-route.guard';
     ])
   ],
   exports: [ExistingForumsComponent, NewForumsComponent],
-  declarations: [ExistingForumsComponent, NewForumsComponent, ForumsComponent],
+  declarations: [ExistingForumsComponent, NewForumsComponent, ForumsComponent, FeedbackComponent],
+  entryComponents: [ FeedbackComponent ],
   providers: [ExistingForumsService, NewForumsService, ForumsRouteGuard]
+
 })
 export class ForumsModule { }

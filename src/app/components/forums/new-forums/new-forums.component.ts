@@ -31,7 +31,6 @@ export class NewForumsComponent implements OnInit {
             const newForums: Array<NewForumsModel> = [];
             for (const row of result){
               for (const forum of JSON.parse(row.forums)){
-                console.log(forum);
                 newForums.push(forum);
               }
             }
