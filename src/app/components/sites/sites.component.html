@@ -1,8 +1,9 @@
+
+<mat-toolbar color="primary">
+    <span>Site list</span>
+</mat-toolbar>
 <div class="flex-container">
   <div class="row">
-    <div class="flex-item">
-      <h1 style="padding: 0">Site list</h1>
-    </div>
     <div class="flex-item">
         <div class="example-container mat-elevation-z8">
                 <div class="example-header">
@@ -18,34 +19,50 @@
                                     <mat-cell *matCellDef="let site"> {{site.siteid}} </mat-cell>
                         </ng-container>
 
-                        <!-- Name Column -->
+                        <!-- Site URL Column -->
                         <ng-container matColumnDef="siteurl">
                                     <mat-header-cell *matHeaderCellDef mat-sort-header> Site URL </mat-header-cell>
-                                    <mat-cell *matCellDef="let site"> {{site.siteurl}} </mat-cell>
+                                    <mat-cell *matCellDef="let site"> <a [routerLink]="['/forums', site.siteid]">
+                                        {{site.siteurl}}
+                                      </a>
+                                    </mat-cell>
                         </ng-container>
 
-                        <!-- Weight Column -->
+                        <!-- BBSType Column -->
                         <ng-container matColumnDef="bbstype">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> BBSType </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.bbstype}} </mat-cell>
                         </ng-container>
 
-                        <!-- Color Column -->
+                        <!-- Last Run Column -->
                         <ng-container matColumnDef="autogf_lastrun">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Lastrun </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.autogf_lastrun | date:'MMMM dd, y hh:mm a'}} </mat-cell>
                         </ng-container>
 
-                        <!-- Color Column -->
+                        <!-- Last Sync Column -->
                         <ng-container matColumnDef="autogf_lastsync">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Lastsync </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.autogf_lastsync | date:'MMMM dd, y hh:mm a'}} </mat-cell>
                         </ng-container>
 
-                        <!-- Color Column -->
+                        <!-- Priority Column -->
                         <ng-container matColumnDef="autogf_priority">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Auto GF Priority </mat-header-cell>
                           <mat-cell *matCellDef="let site"> {{site.autogf_priority}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Signal Column -->
+                        <ng-container matColumnDef="signalstring">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Signals </mat-header-cell>
+                          <mat-cell *matCellDef="let site">
+                            <span matTooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum." matTooltipPosition='after'> {{site.signalstring}} </span>
+                          </mat-cell>
                         </ng-container>
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

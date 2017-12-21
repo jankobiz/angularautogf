@@ -10,11 +10,11 @@ import { forEach } from '@angular/router/src/utils/collection';
   selector: 'app-sites',
   templateUrl: './sites.component.html',
   styleUrls: ['./sites.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class SitesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ['siteid', 'siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority'];
+  displayedColumns = ['siteurl', 'bbstype', 'autogf_lastrun', 'autogf_lastsync', 'autogf_priority', 'signalstring'];
   // dataSource = new SiteDataSource(this.sitesService);
   sites: Site[];
   sitesArray: Site[] = [];
@@ -44,16 +44,22 @@ export class SitesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.sitesService.getSites()
-    .subscribe(data => this.sites = data['data'],
+    .subscribe(data => this.sites = <Site[]>data['data'],
                error => this.errorMessage = <any>error,
                () => {
-                this.sites.forEach(element => {
-                   element.autogf_lastrun = new Date (element.autogf_lastrun);
-                 });
-                 this.dataSource = new MatTableDataSource<Site>(this.sites);
-                 this.dataSource.sort = this.sort;
-                 this.dataSource.paginator = this.paginator;
-                 console.log('fdfdsf', this.sites);
+                  let elem;
+                  this.sites.forEach(element => {
+                    elem = JSON.parse(element.signals);
+                    if (elem !== null) {
+                      element.signalstring = elem.signals.join();
+                      element.signalsum = elem.sum;
+                    } else {
+                      element.signalstring = '';
+                    }
+                  });
+                  this.dataSource = new MatTableDataSource<Site>(this.sites);
+                  this.dataSource.sort = this.sort;
+                  this.dataSource.paginator = this.paginator;
                 });
   }
 

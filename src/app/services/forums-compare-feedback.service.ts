@@ -4,18 +4,26 @@ import 'rxjs/add/operator/map';
 import { Http, Response } from '@angular/http';
 import { environment } from '../../environments/environment';
 
+
 @Injectable()
-export class ExistingForumsService {
+export class ForumsCompareFeedbackService {
 
   private baseUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getExistingForums(siteid: string): any {
+  getFeedback(id: string): any {
 
-    const endpoint = `sites/${siteid}/forums`;
+    const endpoint = `newForums/${id}/feedback`;
 
     return this.http.get(this.baseUrl + endpoint);
+  }
+
+  editFeedback(id: string, body: string): any {
+
+    const endpoint = `newForums/${id}`;
+
+    return this.http.patch(this.baseUrl + endpoint, body);
   }
 
 }

@@ -1,8 +1,19 @@
 <div class="existing-forums-container mat-elevation-z8">
   <div class="existing-forums-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
+    <mat-toolbar>
+      <span>Existing forums</span>
+    
+      <!-- This fills the remaining space of the current row -->
+      <span class="fill-remaining-space" ></span>      
+
+      <div class="filter">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>  
+      
+    
+    </mat-toolbar>
   </div>
   <mat-table #table [dataSource]="dataSource" matSort>
     
